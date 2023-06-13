@@ -36,3 +36,54 @@
     transform: rotate(360deg);
   }
 }
+
+/* ... Existing CSS code ... */
+
+.inv {
+  position: relative;
+  display: inline-block;
+}
+
+.inv::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ff0000; /* Change the color as desired */
+  opacity: 0.5;
+  animation: glowing 2s ease-in-out infinite;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
+  }
+  100% {
+    box-shadow: 0 0 5px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+  }
+}
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-text {
+  animation: slideIn 1s ease-in-out;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  text-shadow: 2px 2px 4px red; /* Add shadow effect */
+}
+
